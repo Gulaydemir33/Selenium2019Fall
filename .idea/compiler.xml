@@ -9,5 +9,6 @@
         <module name="Selenium2019Fall" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="12" />
   </component>
 </project>
