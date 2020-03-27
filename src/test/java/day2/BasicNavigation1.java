@@ -41,5 +41,13 @@ public class BasicNavigation1 {
         //MUST BE AT THE END
         driver.close();
     }
+    public static void verifyEquals (String arg1, String arg2){
+        if (arg1.equals(arg2)) {
+            System.out.println("TEST PASSED!");
+        }else{
+            System.out.println("TEST FAILED");
+
+        }
+    }
 
 }
