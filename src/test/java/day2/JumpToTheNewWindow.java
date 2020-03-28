@@ -22,13 +22,33 @@ public class JumpToTheNewWindow {
         Set<String> windowHandles= driver.getWindowHandles();
 
         System.out.println(windowHandles);
+        System.out.println("BEFORE SWITCH :"+ driver.getCurrentUrl());
 
         //since we have all windows
         //and we know id of original window
         //we can say switch to something that is not equal to the old id
+        for(String windowId:windowHandles){
+            //if it's not an old window, then switch
+            if (!windowId.equals(windowHandle)){
+                //to jump to the new window
+                driver.switchTo().window(windowId);
+            }
+        }
 
+        System.out.println( "AFTER SWIICH :" +driver.getCurrentUrl());
 
+        driver.close();
 
     }
+        public static void switchToWindowBasedOnTitle(String pageTitle, WebDriver driver){
+        Set<String> windows = driver.getWindowHandles();
+        for (String window: windows){
+            driver.switchTo().window(window);
+            if(driver.getTitle().equals(pageTitle)){
+                break;
+
+            }
+        }
+        }
 
 }
