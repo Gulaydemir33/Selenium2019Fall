@@ -19,7 +19,7 @@ public class BasicNavigation1 {
 
         Thread.sleep(3000);
 
-        driver.close(); //to close the browser
+
 
         String title = driver.getTitle(); //returns <title>  Some title >/title> text
         String expectedTitle = "Google";
