@@ -37,7 +37,8 @@ public class JumpToTheNewWindow {
 
         System.out.println( "AFTER SWIICH :" +driver.getCurrentUrl());
 
-        driver.close();
+        //driver.close();
+        driver.quit();
 
     }
         public static void switchToWindowBasedOnTitle(String pageTitle, WebDriver driver){
