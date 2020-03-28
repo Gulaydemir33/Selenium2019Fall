@@ -32,12 +32,29 @@ public class BasicNavigation1 {
 
         }
         driver.navigate().to("http://amazon.com");
+        Thread.sleep(3000);
 
         if(driver.getTitle().toLowerCase().contains("amazon")) {
             System.out.println("TEST PASSED!");
         }else{
             System.out.println("TEST FAILED!");
         }
+        //come back to google
+        driver.navigate().back();
+
+        verifyEquals(driver.getTitle(), "Google");
+        //move forward in the browser
+        driver.navigate().forward();
+        Thread.sleep(3000);
+
+        System.out.println("Title: " +driver.getTitle());
+        //returns page title of page that is currently opened
+        //to get URL 
+        System.out.println("URL: "+driver.getCurrentUrl());
+
+        driver.navigate().refresh(); //to reload the page
+        Thread.sleep(3000);
+
         //MUST BE AT THE END
         driver.close();
     }
