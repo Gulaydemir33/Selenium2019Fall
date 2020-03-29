@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utilities.DriverFactory;
+//import utilities.DriverFactory;
 
 public class FindElementsPractice {
     public static void main(String[] args) throws InterruptedException {
