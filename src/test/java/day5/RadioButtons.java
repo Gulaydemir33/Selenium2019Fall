@@ -25,6 +25,13 @@ public class RadioButtons {
         for(WebElement radioButton:radioButtons){
 
             String id = radioButton.getAttribute("id");
+
+            //returns true if is eligible ti click
+            boolean isSelected = radioButton.isSelected();
+            System.out.println(id+" is selected? "+isSelected);
+
+
+
              if(radioButton.isEnabled()) {
 
                  radioButton.click();
@@ -35,10 +42,11 @@ public class RadioButtons {
                  System.out.println("Button is disabled, not clicked : : "+id);
 
              }
+             System.out.println();
 
         }
 
-        driver.quit();
+        driver.quit(); //--> it should be at the end all the time
 
 
 
