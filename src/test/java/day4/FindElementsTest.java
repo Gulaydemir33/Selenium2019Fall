@@ -14,15 +14,25 @@ public class FindElementsTest {
         WebDriver driver = new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/");
 
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         //how to collect all links from the page?
-        List<WebElement> links = driver.findElements(By.tagName("a"));
 
-        for(WebElement link: links){
+
+        List<WebElement> links = driver.findElements(By.tagName("a"));
+        for (WebElement link : links) {
             System.out.println(link.getText());
             System.out.println(link.getAttribute("href"));
             System.out.println();
+
+
         }
-        driver.quit();
+        for (int i = 1; i < links.size(); i++)
+            links.get(i).click();
+        Thread.sleep(2000);
+        driver.navigate().back();//go back
+    links = driver.findElements(By.tagName("a"));
+
+
+        //driver.quit();
     }
 }
