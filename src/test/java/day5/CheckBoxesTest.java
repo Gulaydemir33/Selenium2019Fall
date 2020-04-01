@@ -9,8 +9,10 @@ import utilities.BrowserUtils;
 
 import java.util.List;
 
-public class CheckBoxes {
+public class CheckBoxesTest {
+
     public static void main(String[] args) {
+
         WebDriverManager.chromedriver().version("79").setup();
         WebDriver driver = new ChromeDriver();
 
@@ -19,25 +21,22 @@ public class CheckBoxes {
         BrowserUtils.wait(5);
 
         List<WebElement> checkBoxes = driver.findElements(By.tagName("input"));
-        checkBoxes.get(0).click(); //click on first checkbox
 
-        BrowserUtils.wait(5);
-
-        for (int i = 0; i < checkBoxes.size(); i++) {
-
-
-            if (!checkBoxes.get(i).isDisplayed() && checkBoxes.get(1).isEnabled() && (!checkBoxes.get(1).isSelected())) {
-
-                checkBoxes.get(1).click(); //click on the second checkbox
-                System.out.println("checkbox was clicked!");
-
-            }else{
-                System.out.println(i+1 +"checkbox wasn't clicked!");
-
-                BrowserUtils.wait(5);
-
-                driver.quit();
-
-            }
+        if(!checkBoxes.get(0).isSelected() && checkBoxes.get(1).isSelected()) {
+            System.out.println("TEST PASSED");
+        }else{
+            System.out.println("TEST FAILED");
         }
-    }}
+        WebElement checkbox1 = checkBoxes.get(0);
+        checkbox1.click();
+
+        if (checkbox1.isSelected()){
+            System.out.println("TEST PASSED");
+            System.out.println("checkbox #1 is selected!");
+        }else{
+            System.out.println("TEST FAILED");
+            System.out.println("checkbox #1 is not selected!");
+        }
+        driver.quit();
+    }
+}
