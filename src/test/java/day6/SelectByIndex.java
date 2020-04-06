@@ -18,6 +18,7 @@ public class SelectByIndex {
 
         Select stateSelect = new Select(driver.findElement(By.id("state")));
         //index starts from 0
+        stateSelect.selectByIndex(9); //District Of Columbia
 
         BrowserUtils.wait(3);
         driver.quit();
