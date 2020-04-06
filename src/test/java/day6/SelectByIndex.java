@@ -20,6 +20,9 @@ public class SelectByIndex {
         //index starts from 0
         stateSelect.selectByIndex(9); //District Of Columbia
 
+        //selecting last option
+        stateSelect.selectByIndex(stateSelect.getOptions().size()-1);
+
         BrowserUtils.wait(3);
         driver.quit();
     }
