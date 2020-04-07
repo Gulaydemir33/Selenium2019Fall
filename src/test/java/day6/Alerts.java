@@ -1,6 +1,7 @@
 package day6;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -55,6 +56,27 @@ public class Alerts {
             System.out.println("Expected: "+expected2);
             System.out.println("Actual: "+actual2);
         }
+        buttons.get(2).click();
+
+        BrowserUtils.wait(3);
+
+        Alert alert = driver.switchTo().alert();
+
+        alert.sendKeys("Hello, World!"); //enter text
+        alert.accept(); //click ok
+
+        String actual3 = driver.findElement(By.id("result")).getText();
+        String expected3 = "Hello, World!";
+
+        if(actual3.endsWith(expected3)) {
+            System.out.println("TEST PASSED");
+        }else{
+            System.out.println("TEST FAILED");
+            System.out.println("Expected: "+expected3);
+            System.out.println("Actual: "+actual3);
+        }
+
+
 
         BrowserUtils.wait(3);
         driver.quit();
